@@ -12,6 +12,8 @@ public class Main {
         System.out.println("Введите номер телефона: ");
         phoneNumb = new Scanner(System.in).nextLine();
         cleanPhoneNumb = phoneNumb.replaceAll("\\D", "");
+        stringLengthLimit11();
+        stringLengthLimit10();
     }
     {
         errorPrint();
