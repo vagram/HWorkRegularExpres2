@@ -6,7 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
         cleanString();
-        stringLengthLimit11();
         stringLengthLimit10();
     }
 
@@ -20,10 +19,15 @@ public class Main {
         if (cleanPhoneNumb.length() == 10) {
             cleanPhoneNumb = "7" + cleanPhoneNumb;
             print();
-        }else {
+            return;
+        } else if (cleanPhoneNumb.length() < 10 || cleanPhoneNumb.length() > 11) {
             errorPrint();
         }
+        if (cleanPhoneNumb.length() == 11) {
+            stringLengthLimit11();
+        }
     }
+
 
     public static void stringLengthLimit11() {
         if (cleanPhoneNumb.length() == 11) {
@@ -32,11 +36,13 @@ public class Main {
                 print();
             } else if (cleanPhoneNumb.charAt(0) == '7') {
                 print();
-            } else {
-                errorPrint();
             }
         }
+        if (cleanPhoneNumb.length() > 11 || cleanPhoneNumb.length() < 10) {
+            errorPrint();
+        }
     }
+
 
     public static void print() {
         System.out.println(cleanPhoneNumb);
