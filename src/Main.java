@@ -20,6 +20,8 @@ public class Main {
         if (cleanPhoneNumb.length() == 10) {
             cleanPhoneNumb = "7" + cleanPhoneNumb;
             print();
+        }else {
+            errorPrint();
         }
     }
 
