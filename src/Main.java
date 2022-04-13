@@ -1,6 +1,8 @@
 import java.util.Scanner;
+
 public class Main {
     private static String cleanPhoneNumb;
+
     public static void main(String[] args) {
         all();
     }
@@ -16,6 +18,7 @@ public class Main {
             return;
         }
         formattingPhone();
+        print();
     }
 
     public static void cleanString() {
@@ -25,13 +28,13 @@ public class Main {
     }
 
     public static void stringLengthLimit10() {
-            cleanPhoneNumb = "7" + cleanPhoneNumb;
+        cleanPhoneNumb = "7" + cleanPhoneNumb;
     }
 
     public static void stringLengthLimit11() {
-            if (cleanPhoneNumb.charAt(0) == '8') {
-                cleanPhoneNumb = cleanPhoneNumb.replaceFirst("[8]", "7");
-            }
+        if (cleanPhoneNumb.charAt(0) == '8') {
+            cleanPhoneNumb = cleanPhoneNumb.replaceFirst("[8]", "7");
+        }
     }
 
     public static void print() {
@@ -41,9 +44,9 @@ public class Main {
     public static void errorPrint() {
         System.out.println("Неправильный формат ввода");
     }
-    public static void formattingPhone(){
-        String temp = "(" + cleanPhoneNumb.substring(1,4) + ")" + cleanPhoneNumb.substring(4,11);
-        temp = "+" + cleanPhoneNumb.charAt(0) + temp;
-        System.out.println(temp);
+
+    public static void formattingPhone() {
+        cleanPhoneNumb = cleanPhoneNumb.replaceFirst("(\\d{1})(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "+$1($2)$3$4$5");
+
     }
 }
