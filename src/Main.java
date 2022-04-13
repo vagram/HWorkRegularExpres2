@@ -1,22 +1,16 @@
 import java.util.Scanner;
-
 public class Main {
-    private static String phoneNumb;
+    public static String phoneNumb;
     private static String cleanPhoneNumb;
     public static void main(String[] args) {
         cleanString();
-        stringLengthLimit10();
         stringLengthLimit11();
+        stringLengthLimit10();
     }
     public static void cleanString() {
         System.out.println("Введите номер телефона: ");
         phoneNumb = new Scanner(System.in).nextLine();
         cleanPhoneNumb = phoneNumb.replaceAll("\\D", "");
-        stringLengthLimit11();
-        stringLengthLimit10();
-    }
-    {
-        errorPrint();
     }
     public static void stringLengthLimit10() {
         if (cleanPhoneNumb.length() == 10) {
@@ -29,18 +23,20 @@ public class Main {
             if (cleanPhoneNumb.charAt(0) == '8') {
                 cleanPhoneNumb = cleanPhoneNumb.replaceFirst("[8]", "7");
                 print();
+            } else if (cleanPhoneNumb.charAt(0) == '7') {
+                print();
             } else {
                 stringLengthLimit10();
             }
+        } else {
+            errorPrint();
         }
     }
     public static void print() {
         System.out.println(cleanPhoneNumb);
-        return;
     }
     public static void errorPrint() {
         System.out.println("Неправильный формат ввода");
-        return;
     }
 }
 
