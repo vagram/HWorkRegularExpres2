@@ -15,7 +15,7 @@ public class Main {
             errorPrint();
             return;
         }
-        print();
+        formattingPhone();
     }
 
     public static void cleanString() {
@@ -25,17 +25,13 @@ public class Main {
     }
 
     public static void stringLengthLimit10() {
-        if (cleanPhoneNumb.length() == 10) {
             cleanPhoneNumb = "7" + cleanPhoneNumb;
-        }
     }
 
     public static void stringLengthLimit11() {
-        if (cleanPhoneNumb.length() == 11) {
             if (cleanPhoneNumb.charAt(0) == '8') {
                 cleanPhoneNumb = cleanPhoneNumb.replaceFirst("[8]", "7");
             }
-        }
     }
 
     public static void print() {
@@ -44,5 +40,10 @@ public class Main {
 
     public static void errorPrint() {
         System.out.println("Неправильный формат ввода");
+    }
+    public static void formattingPhone(){
+        String temp = "(" + cleanPhoneNumb.substring(1,4) + ")" + cleanPhoneNumb.substring(4,11);
+        temp = "+" + cleanPhoneNumb.charAt(0) + temp;
+        System.out.println(temp);
     }
 }
